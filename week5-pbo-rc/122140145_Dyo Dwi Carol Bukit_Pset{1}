@@ -1,0 +1,70 @@
+
+##Maaf ya bang kalau saya beda dari yang lain
+##Karena saya belajar dari youtube bang
+
+from tkinter import *
+from tkinter import messagebox
+
+window = Tk()
+window.title("Login")
+
+window.geometry("350x325+300+200")
+window.configure(bg = "#fff")
+window.resizable(False, False)
+
+def login():
+    username = user.get()
+    password = code.get()
+
+    if username == 'Dyo' and password == '2003':
+        success = Toplevel(window)
+        success.title("Login Successful")
+        success.geometry("250x200+200+200")
+        Label(success, text = 'Welcome Dyo', bg = '#fff', font = ('Calibri(Body)', 25, 'bold')).pack(expand = TRUE)
+        success.mainloop()
+    else :
+        messagebox.showerror("Invalid", "Invalid Username or Password")
+
+def registrasi():
+    Daftar = Toplevel(window)
+    Daftar.title("Registrasi")
+    Daftar.geometry("400x350+300+200")
+
+    reg_heading = Label(Daftar, text="Daftar", fg="#57a1f8", bg="white", font=("Microsoft YaHei UI Light", 23, "bold"))
+    reg_heading.place(x=90, y=10)
+
+    reg_username_label = Label(Daftar, text="Username:", fg="black", bg="white",font=("Microsoft YaHei UI Light", 11))
+    reg_username_label.place(x=50, y=80)
+
+    reg_username_entry = Entry(Daftar, width=25, fg="black", border=0, bg="white", font=("Microsoft YaHei UI Light", 11))
+    reg_username_entry.place(x=50, y=110)
+
+    reg_password_label = Label(Daftar, text="Password:", fg="black", bg="white", font=("Microsoft YaHei UI Light", 11))
+    reg_password_label.place(x=50, y=150)
+
+    reg_password_entry = Entry(Daftar, width=25, fg="black", border=0, bg="white", font=("Microsoft YaHei UI Light", 11))
+    reg_password_entry.place(x=50, y=180)
+    submit_button = Button(Daftar, width=39, pady=7, text="Submit", bg="#57a1f8", fg="white", border=0, command=lambda: messagebox.showinfo("Registration", "Registration Successful!!"))
+    submit_button.place(x=35, y=230)
+
+
+frame = Frame(window, width = 350, height = 350, bg = 'white')
+frame.place(x = 0, y = 10)
+
+heading = Label(frame, text = 'Sign in', fg = '#57a1f8', bg = 'white', font = ('Microsoft YaHei UI Light',23, 'bold'))
+heading.place(x = 100, y = 10)
+
+user = Entry(frame, width = 25, fg = 'black', border = 0, bg = 'white', font = ('Microsoft YaHei UI Light', 11))
+user.place (x = 50, y = 80)
+user.insert(0, 'Username')
+Frame(frame, width = 250, height = 2, bg = 'black').place(x = 50, y = 107)
+
+code = Entry(frame, width = 25, fg = 'black', border = 0, bg = 'white', font = ('Microsoft YaHei UI Light', 11))
+code.place (x = 50, y = 150)
+code.insert(0, 'Password') 
+Frame(frame, width = 250, height = 2, bg = 'black').place(x = 50, y = 177)
+
+Button(frame, width = 35, pady = 7, text = 'Login', bg = '#57a1f8', fg = 'white', border = 0, command = login).place (x = 50, y = 204)
+register = Button(frame, width = 35, pady = 7, text = 'Register', bg = '#57a1f8', fg = 'white', border = 0, command = registrasi)
+register.place (x = 50, y = 260)
+window.mainloop()
